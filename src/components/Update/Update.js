@@ -9,6 +9,18 @@ const Update = () => {
     const handleUpdateUser = event => {
         event.preventDefault()
         console.log(users)
+        fetch(`http://localhost:5000/users/${storedUser._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+        .then((response) => response.json())
+            .then((data) => { 
+                console.log(data);
+                // event.target.reser('')
+            })
    }
     const handleInputChange = event => {
         const value = event.target.value
